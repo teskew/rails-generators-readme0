@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
-  	@post = Post.find(params[:id])
+  	@post = Post.find_by_id(params[:id])
   end
 
   def new
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params(*args)
-    params.require(:post).permit(*args)
+  def post_params(args)
+    params.require(:post).permit(args)
   end
 end
